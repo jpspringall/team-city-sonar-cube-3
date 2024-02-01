@@ -125,11 +125,11 @@ object DeployBuild : BuildType({
         param("git.branch.specification", "")
     }
 
-    //val gt = GitTesting{vcsRootUrl = "%vcsroot.url%"}
+    val gt = GitTesting{vcsRootUrl = "%vcsroot.url%"}
 
     createParameters()
 
-    printDeployNumber()
+    printDeployNumber(gt)
 
     triggers {
     }

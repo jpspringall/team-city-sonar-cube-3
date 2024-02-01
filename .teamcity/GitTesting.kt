@@ -4,15 +4,15 @@ open class GitTesting() {
         init()
     }
 
-    internal fun getOwner(): String
-    {
-        return vcsRootUrl.split('/')[3];
-    }
-
-    internal fun getRepo(): String
-    {
-        return vcsRootUrl.split('/')[4];
-    }
+//    internal fun getOwner(): String
+//    {
+//        return vcsRootUrl.split('/')[3];
+//    }
+//
+//    internal fun getRepo(): String
+//    {
+//        return vcsRootUrl.split('/')[4];
+//    }
 
     internal fun getFull(): String
     {
