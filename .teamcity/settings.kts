@@ -125,7 +125,7 @@ object DeployBuild : BuildType({
         param("git.branch.specification", "")
     }
 
-    val gt = GitTesting{}
+    val gt = GitTesting{vcsRootUrl = "https://github.com/jpspringall/team-city-sonar-cube-3"}
 
     createParameters()
 
