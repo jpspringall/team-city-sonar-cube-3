@@ -47,6 +47,7 @@ object CommonSteps {
                 scriptContent = """
                 #!/bin/bash
                 echo "Full: ${gts.getFull()}"
+                echo "Owner: ${gts.getOwner()}"
             """.trimIndent()
             }
         }
