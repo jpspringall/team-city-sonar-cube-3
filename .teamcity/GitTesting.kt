@@ -1,13 +1,18 @@
 open class GitTesting() {
-    lateinit var vcsRootUrl: String
+    //lateinit var vcsRootUrl: String
     constructor(init: GitTesting.() -> Unit) : this(){
         init()
     }
 
+    internal fun getVcsRootUrl(): String
+    {
+        return "%vcsroot.url%";
+    }
+
     internal fun getOwner(): String
     {
-        if (vcsRootUrl.indexOf('/') > -1) {
-            return vcsRootUrl.split('/')[3];
+        if (getVcsRootUrl().indexOf('/') > -1) {
+            return getVcsRootUrl().split('/')[3];
         }
         else
         {
@@ -17,8 +22,8 @@ open class GitTesting() {
 
     internal fun getRepo(): String
     {
-        if (vcsRootUrl.indexOf('/') > -1) {
-            return vcsRootUrl.split('/')[4];
+        if (getVcsRootUrl().indexOf('/') > -1) {
+            return getVcsRootUrl().split('/')[4];
         }
         else
         {
@@ -26,8 +31,12 @@ open class GitTesting() {
         }
     }
 
+    internal fun getCounts(): Int {
+        return getVcsRootUrl().split('/').count()
+    }
+
     internal fun getFull(): String
     {
-        return vcsRootUrl;
+        return getVcsRootUrl();
     }
 }
