@@ -57,7 +57,7 @@ object CommonSteps {
                 #!/bin/bash
                 echo "DslContext: ${DslContext.getParameter("vcsroot.url", "NOT SET")}"
                 echo "System: ${System.getProperty("vcsroot.url", "NOT SET")}"
-                //echo "XYZ: $xyz"
+                echo "XYZ: $xyz"
                 echo "Owner: ${gts.getOwner()}"
                 echo "Repo: ${gts.getRepo()}"
             """.trimIndent()
