@@ -6,12 +6,24 @@ open class GitTesting() {
 
     internal fun getOwner(): String
     {
-        return vcsRootUrl.split('/')[3];
+        if (vcsRootUrl.indexOf('/') > -1) {
+            return vcsRootUrl.split('/')[3];
+        }
+        else
+        {
+            return "";
+        }
     }
 
     internal fun getRepo(): String
     {
-        return vcsRootUrl.split('/')[4];
+        if (vcsRootUrl.indexOf('/') > -1) {
+            return vcsRootUrl.split('/')[4];
+        }
+        else
+        {
+            return "";
+        }
     }
 
     internal fun getFull(): String
