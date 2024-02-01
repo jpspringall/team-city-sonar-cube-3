@@ -49,6 +49,7 @@ object CommonSteps {
                 echo "Full: ${gts.getFull()}"
                 echo "Counts: ${gts.getCounts()}"
                 echo "Owner: ${gts.getOwner()}"
+                echo "Repo: ${gts.getRepo()}"
             """.trimIndent()
             }
         }
