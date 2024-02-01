@@ -33,6 +33,14 @@ object CommonSteps {
     ) {
 //        echo "Owner: ${gts.getOwner()}"
 //        echo "Repo: ${gts.getRepo()}"
+
+        var xyz = "NOT SET"
+
+        val vcsRoot = bts.params.findRawParam("vcsroot.url")
+        if (vcsRoot != null && vcsRoot.value.isNotBlank()) {
+            xyz = vcsRoot.value
+        }
+
         steps {
             script {
                 name = "Print Deploy Number teamcity-sonar"
@@ -49,7 +57,7 @@ object CommonSteps {
                 #!/bin/bash
                 echo "DslContext: ${DslContext.getParameter("vcsroot.url", "NOT SET")}"
                 echo "System: ${System.getProperty("vcsroot.url", "NOT SET")}"
-                echo "System: ${bts.params.findRawParam("vcsroot.url")!!.value}"
+                //echo "XYZ: $xyz"
                 echo "Owner: ${gts.getOwner()}"
                 echo "Repo: ${gts.getRepo()}"
             """.trimIndent()
