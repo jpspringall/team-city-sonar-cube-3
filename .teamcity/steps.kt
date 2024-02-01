@@ -1,5 +1,6 @@
 
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.DslContext
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object CommonSteps {
@@ -46,6 +47,7 @@ object CommonSteps {
                 name = "Print Git"
                 scriptContent = """
                 #!/bin/bash
+                echo "DslContext: ${DslContext.getParameter("vcsroot.url", "NOT SET")}"
                 echo "Owner: ${gts.getOwner()}"
                 echo "Repo: ${gts.getRepo()}"
             """.trimIndent()
