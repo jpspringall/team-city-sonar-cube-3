@@ -129,7 +129,7 @@ object DeployBuild : BuildType({
 
     createParameters()
 
-    printDeployNumber(gt)
+    printDeployNumber(this, gt)
 
     triggers {
     }

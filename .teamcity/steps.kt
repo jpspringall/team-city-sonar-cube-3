@@ -29,7 +29,7 @@ object CommonSteps {
         }
     }
 
-    fun BuildType.printDeployNumber(gts: GitTesting
+    fun BuildType.printDeployNumber(bts: BuildType, gts: GitTesting
     ) {
 //        echo "Owner: ${gts.getOwner()}"
 //        echo "Repo: ${gts.getRepo()}"
@@ -48,6 +48,8 @@ object CommonSteps {
                 scriptContent = """
                 #!/bin/bash
                 echo "DslContext: ${DslContext.getParameter("vcsroot.url", "NOT SET")}"
+                echo "System: ${System.getProperty("vcsroot.url", "NOT SET")}"
+                echo "System: ${bts.params.findRawParam("vcsroot.url")!!.value}"
                 echo "Owner: ${gts.getOwner()}"
                 echo "Repo: ${gts.getRepo()}"
             """.trimIndent()
