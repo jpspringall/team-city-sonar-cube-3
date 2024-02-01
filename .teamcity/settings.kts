@@ -11,6 +11,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.project
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.ui.add
 import jetbrains.buildServer.configs.kotlin.version
 
 /*
@@ -124,11 +125,11 @@ object DeployBuild : BuildType({
         param("git.branch.specification", "")
     }
 
-    val gt = GitTesting{vcsRootUrl = "%vcsroot.url%"}
+    //val gt = GitTesting{vcsRootUrl = "%vcsroot.url%"}
 
     createParameters()
 
-    printDeployNumber(gt)
+    printDeployNumber()
 
     triggers {
     }
@@ -158,16 +159,16 @@ for (bt : BuildType in project.buildTypes ) {
             -:<default>
         """.trimIndent()
     }
-//    if (bt.name == "Pull Request Build" || bt.name == "Master Build") {
-//        bt.features.add {
-//            feature {
-//                type = "xml-report-plugin"
-//                param("verbose", "true")
-//                param("xmlReportParsing.reportType", "trx")
-//                param("xmlReportParsing.reportDirs","%system.teamcity.build.checkoutDir%/test-results/**/*.trx")
-//            }
-//        }
-//    }
+    if (bt.name == "Pull Request Build" || bt.name == "Master Build") {
+        bt.features.add {
+            feature {
+                type = "xml-report-plugin"
+                param("verbose", "true")
+                param("xmlReportParsing.reportType", "trx")
+                param("xmlReportParsing.reportDirs","%system.teamcity.build.checkoutDir%/test-results/**/*.trx")
+            }
+        }
+    }
 //    if (bt.name == "Pull Request Build" || bt.name == "Master Build")
 //    {
 //        bt.features.add {  xmlReport {

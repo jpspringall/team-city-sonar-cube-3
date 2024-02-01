@@ -28,7 +28,7 @@ object CommonSteps {
         }
     }
 
-    fun BuildType.printDeployNumber(gts: GitTesting
+    fun BuildType.printDeployNumber(
     ) {
         steps {
             script {
@@ -40,15 +40,15 @@ object CommonSteps {
                 echo "Counter is: ${'$'}counter"
             """.trimIndent()
             }
-            script {
-                name = "Print Git"
-                scriptContent = """
-                #!/bin/bash
-                echo "Full: ${gts.getFull()}"
-                echo "Owner: ${gts.getOwner()}"
-                echo "Repo: ${gts.getRepo()}"
-            """.trimIndent()
-            }
+//            script {
+//                name = "Print Git"
+//                scriptContent = """
+//                #!/bin/bash
+//                echo "Full: ${gts.getFull()}"
+//                echo "Owner: ${gts.getOwner()}"
+//                echo "Repo: ${gts.getRepo()}"
+//            """.trimIndent()
+//            }
         }
     }
 
