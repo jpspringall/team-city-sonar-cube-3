@@ -11,8 +11,8 @@ open class GitTesting() {
 
     internal fun getOwner(): String
     {
-        if (getVcsRootUrl().indexOf('/') > -1) {
-            return getVcsRootUrl().split('/')[3];
+        if (getVcsRootUrl().indexOf("/") > -1) {
+            return getVcsRootUrl().split("/")[3];
         }
         else
         {
@@ -32,7 +32,7 @@ open class GitTesting() {
     }
 
     internal fun getCounts(): Int {
-        return getVcsRootUrl().split('/').count()
+        return getVcsRootUrl().split("/").count()
     }
 
     internal fun getFull(): String
